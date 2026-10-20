@@ -4,92 +4,101 @@ import os
 import time
 
 TOKEN = os.getenv("GITHUB_TOKEN")
-HEADERS = {
-    "Accept": "application/vnd.github.v3+json",
-}
+HEADERS = {"Accept": "application/vnd.github.v3+json"}
 if TOKEN:
     HEADERS["Authorization"] = f"token {TOKEN}"
-else:
-    print("⚠️ 警告: 没有检测到 GITHUB_TOKEN，API 限流只有 60次/小时，搜不到几个就会报错！")
 
-QUERIES = [
-    "topic:kernelsu",
-    "topic:magisk-module",
-    "topic:android-root"
+QUERIES = ["topic:kernelsu", "topic:magisk-module", "topic:android-root"]
+
+# 🚨 黑名单：包含这些关键词的仓库/描述/脚本，直接踢掉
+BLACKLIST_KEYWORDS = [
+    "格机", "删库", "病毒", "木马", "cheat", "hack", "trojan", "steal", 
+    "format", "rm -rf", "dd if=/dev/zero", "过风控", "过检测"
 ]
 
-def search_repositories(query):
-    # 按最近更新排序
-    url = f"https://api.github.com/search/repositories?q={query}&sort=updated&order=desc&per_page=50"
-    resp = requests.get(url, headers=HEADERS)
-    if resp.status_code == 200:
-        return resp.json().get("items", [])
-    print(f"❌ 搜索失败: {query}, 状态码: {resp.status_code}")
-    return []
+def is_safe(repo_name, description):
+    text = (repo_name + " " + (description or "")).lower()
+    # 1. 名字和描述黑名单检测
+    for word in BLACKLIST_KEYWORDS:
+        if word in text:
+            print(f"⛔ 拦截高危模块 (描述含黑名单关键词 {word}): {repo_name}")
+            return False
+    return True
 
-def get_latest_release(repo_full_name):
-    url = f"https://api.github.com/repos/{repo_full_name}/releases/latest"
-    resp = requests.get(url, headers=HEADERS)
+def get_latest_release(repo):
+    resp = requests.get(
+        f"https://api.github.com/repos/{repo}/releases/latest", headers=HEADERS
+    )
     if resp.status_code != 200:
         return None
-    
     data = resp.json()
-    download_url = ""
-    size = 0
-    for asset in data.get("assets", []):
-        if asset["name"].endswith(".zip"):
-            download_url = asset["browser_download_url"]
-            size = asset["size"]
-            break
-            
-    if not download_url:
+
+    zip_asset = next(
+        (a for a in data.get("assets", []) if a["name"].endswith(".zip")), None
+    )
+    if not zip_asset:
         return None
 
-    # 风控过滤黑名单，防呆
-    blacklist_keywords = ["cheat", "hack", "steal", "trojan"]
-    repo_name_lower = repo_full_name.lower()
-    if any(k in repo_name_lower for k in blacklist_keywords):
-        print(f"⛔ 跳过疑似危险模块: {repo_full_name}")
+    # 2. 体积安检：超过 20MB 的模块极度可疑，直接拒绝；小于 10KB 的是空包，也拒绝
+    size_mb = zip_asset["size"] / (1024 * 1024)
+    if size_mb > 20 or size_mb < 0.01:
+        print(f"⚠️ 体积异常，拦截: {repo} ({size_mb:.2f} MB)")
         return None
+
+    # 尝试从仓库根目录读取 module.prop
+    module_prop_url = f"https://raw.githubusercontent.com/{repo}/main/module.prop"
+    prop_resp = requests.get(module_prop_url, headers=HEADERS)
+    update_json = ""
+    if prop_resp.status_code == 200:
+        for line in prop_resp.text.splitlines():
+            if line.startswith("updateJson="):
+                update_json = line.split("=", 1)[1].strip()
 
     return {
-        "id": repo_full_name.replace("/", "_"),
-        "name": repo_full_name.split("/")[1],
+        "id": repo.replace("/", "_"),
+        "name": repo.split("/")[1],
         "version": data.get("tag_name", "Unknown"),
-        "author": repo_full_name.split("/")[0],
-        "description": (data.get("body") or "暂无说明")[:80].replace('\n', ' ') + "...",
-        "repo": f"https://github.com/{repo_full_name}",
-        "zipUrl": download_url,
-        "size": size,
-        "updated_at": data.get("published_at", "")
+        "versionCode": 1,
+        "author": repo.split("/")[0],
+        "description": (data.get("body") or "")[:80].replace("\n", " "),
+        "zipUrl": zip_asset["browser_download_url"],
+        "updateJson": update_json,
+        "size": zip_asset["size"],
+        "updatedAt": data.get("published_at", ""),
     }
 
 def main():
     all_repos = {}
-    
-    print("🚀 开始全网搜刮 KernelSU 模块...")
     for q in QUERIES:
-        print(f"🔍 正在搜索: {q}")
-        repos = search_repositories(q)
-        for r in repos:
-            all_repos[r["full_name"]] = r
+        resp = requests.get(
+            f"https://api.github.com/search/repositories?q={q}&sort=updated&order=desc&per_page=50",
+            headers=HEADERS,
+        )
+        if resp.status_code == 200:
+            for r in resp.json().get("items", []):
+                # 🚨 3. 仓库信誉门槛：Star 数少于 2 的新号小号，直接不要（防批量注册的恶意号）
+                if r.get("stargazers_count", 0) < 2:
+                    continue
+                
+                # 4. 描述安检
+                if not is_safe(r["full_name"], r.get("description")):
+                    continue
+
+                all_repos[r["full_name"]] = r
         time.sleep(1)
-    
-    print(f"📦 搜到 {len(all_repos)} 个相关仓库，开始校验 Release...")
-    
-    valid_modules = []
-    for repo_name in all_repos.keys():
-        mod = get_latest_release(repo_name)
+
+    modules = []
+    for repo in all_repos:
+        mod = get_latest_release(repo)
         if mod:
-            valid_modules.append(mod)
-            print(f"✅ 收录: {repo_name} - {mod['version']}")
-        time.sleep(0.5)
+            modules.append(mod)
+            print(f"✅ 收录通过: {repo} - {mod['version']}")
+        time.sleep(0.3)
 
-    valid_modules.sort(key=lambda x: x["updated_at"], reverse=True)
-
+    modules.sort(key=lambda x: x["updatedAt"], reverse=True)
     with open("modules.json", "w", encoding="utf-8") as f:
-        json.dump(valid_modules, f, indent=4, ensure_ascii=False)
-    print(f"🎉 成功生成 modules.json，共包含 {len(valid_modules)} 个有效模块！")
+        json.dump(modules, f, indent=2, ensure_ascii=False)
+    print(f"🎉 安检完毕，共收录 {len(modules)} 个安全模块")
 
 if __name__ == "__main__":
     main()

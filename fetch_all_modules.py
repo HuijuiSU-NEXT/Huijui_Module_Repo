@@ -169,6 +169,25 @@ def main():
     final_list = list(unique_mods.values())
     final_list.sort(key=lambda x: x["updatedAt"] or "", reverse=True)
     
+    
+    # 🚀 Ultra 去重与净化：过滤掉名字里带 test 的、且清理过多的 hash
+    cleaned_list = []
+    seen_ids = set()
+    for m in final_list:
+        # 过滤明显的测试包
+        if "test" in m["name"].lower() or "debug" in m["name"].lower():
+            continue
+        # 过滤超长的重复包
+        if len(m["name"]) > 30 and "lsposed" in m["name"].lower():
+            continue
+        if m["id"] not in seen_ids:
+            seen_ids.add(m["id"])
+            # 清理掉描述里乱七八糟的 markdown 和 hash
+            m["description"] = m["description"].split("SHA256:")[0].strip()
+            cleaned_list.append(m)
+            
+    final_list = cleaned_list
+
     with open("modules.json", "w", encoding="utf-8") as f:
         json.dump(final_list, f, indent=2, ensure_ascii=False)
     print(f"\n🎉 [Ultra] 终极安检完毕！成功入库 {len(final_list)} 个高质量模块！", flush=True)
@@ -272,6 +291,25 @@ def finalize_and_save(modules):
     final_list = list(unique_mods.values())
     final_list.sort(key=lambda x: x["updatedAt"] or "", reverse=True)
     
+    
+    # 🚀 Ultra 去重与净化：过滤掉名字里带 test 的、且清理过多的 hash
+    cleaned_list = []
+    seen_ids = set()
+    for m in final_list:
+        # 过滤明显的测试包
+        if "test" in m["name"].lower() or "debug" in m["name"].lower():
+            continue
+        # 过滤超长的重复包
+        if len(m["name"]) > 30 and "lsposed" in m["name"].lower():
+            continue
+        if m["id"] not in seen_ids:
+            seen_ids.add(m["id"])
+            # 清理掉描述里乱七八糟的 markdown 和 hash
+            m["description"] = m["description"].split("SHA256:")[0].strip()
+            cleaned_list.append(m)
+            
+    final_list = cleaned_list
+
     with open("modules.json", "w", encoding="utf-8") as f:
         json.dump(final_list, f, indent=2, ensure_ascii=False)
     print(f"\n🎉 [Ultra] 终极安检完毕！成功入库 {len(final_list)} 个高质量模块！", flush=True)

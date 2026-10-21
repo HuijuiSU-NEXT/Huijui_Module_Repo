@@ -1,16 +1,16 @@
 [
   {
-    "id": "nullcpy_rvb",
-    "name": "rvb",
-    "version": "260327",
+    "id": "midori01_gki_ksu_workflow",
+    "name": "gki_ksu_workflow",
+    "version": "20261021-0717-6.12",
     "versionCode": 1,
-    "author": "nullcpy",
-    "description": "### 🧩 heval99/Heval-Morphe-Patches ([v1.17.0](https://github.com/heval99/Heval-Morphe-Patches/releas",
-    "zipUrl": "https://github.com/nullcpy/rvb/releases/download/260327/truecaller-heval99-module-v26.40.5-arm-v7a.zip",
-    "size": 172829373,
+    "author": "midori01",
+    "description": "- **6.12.38_r39**: [`4ef93a7`](https://android.googlesource.com/kernel/common/+/refs/tags/android16-",
+    "zipUrl": "https://github.com/midori01/gki_ksu_workflow/releases/download/20261021-0717-6.12/ksu_module_susfs_1.5.2%2B.zip",
+    "size": 911798,
     "stars": 0,
-    "downloadCount": 2,
-    "updatedAt": "2026-10-20T17:45:50Z"
+    "downloadCount": 0,
+    "updatedAt": "2026-10-20T22:54:38Z"
   },
   {
     "id": "cirno_reclaim",
@@ -22,7 +22,7 @@
     "zipUrl": "https://github.com/Sui090213/cirno-reclaim/releases/download/v2.2.4/Cirno-Reclaim-Hybrid-v2.3.4-source.zip",
     "size": 328441,
     "stars": 0,
-    "downloadCount": 0,
+    "downloadCount": 1,
     "updatedAt": "2026-10-20T16:16:03Z"
   },
   {
@@ -139,7 +139,7 @@
     "zipUrl": "https://github.com/matsuzaka-yuki/susfs-lkm-module/releases/download/v2.3.0-r18.4/susfs-lkm-module-v2.3.0-r18.4-arm64-multi-kmi.zip",
     "size": 10525132,
     "stars": 0,
-    "downloadCount": 53,
+    "downloadCount": 55,
     "updatedAt": "2026-10-20T11:00:12Z"
   },
   {
@@ -178,7 +178,7 @@
     "zipUrl": "https://github.com/inforcqb/susfs4ksu-lkm/releases/download/v2.3.0-r18.4/susfs_guard_lkm-module-v2.3.0-r18.4-arm64.zip",
     "size": 10200902,
     "stars": 0,
-    "downloadCount": 181,
+    "downloadCount": 188,
     "updatedAt": "2026-10-20T06:45:22Z"
   },
   {
@@ -234,19 +234,6 @@
     "updatedAt": "2026-10-20T02:10:37Z"
   },
   {
-    "id": "midori01_gki_ksu_workflow",
-    "name": "gki_ksu_workflow",
-    "version": "20261020-1049-6.12",
-    "versionCode": 1,
-    "author": "midori01",
-    "description": "- **6.12.38_r39**: [`4ef93a7`](https://android.googlesource.com/kernel/common/+/refs/tags/android16-",
-    "zipUrl": "https://github.com/midori01/gki_ksu_workflow/releases/download/20261020-1049-6.12/ksu_module_susfs_1.5.2%2B.zip",
-    "size": 911798,
-    "stars": 0,
-    "downloadCount": 0,
-    "updatedAt": "2026-10-20T02:07:52Z"
-  },
-  {
     "id": "compdoge_gxr-ksu-modules",
     "name": "gxr-ksu-modules",
     "version": "gxr-display-off-v0.2.0",
@@ -256,7 +243,7 @@
     "zipUrl": "https://github.com/compdoge/gxr-ksu-modules/releases/download/gxr-display-off-v0.2.0/gxr-display-off-v0.2.0.zip",
     "size": 20373,
     "stars": 0,
-    "downloadCount": 8,
+    "downloadCount": 10,
     "updatedAt": "2026-10-20T00:54:11Z"
   },
   {
@@ -269,7 +256,7 @@
     "zipUrl": "https://github.com/g7755726/Dynamic-System-Tweaks-Magisk-Module/releases/download/v4.8/DynamicSystemTweaks-v4.8.zip",
     "size": 9314,
     "stars": 0,
-    "downloadCount": 88,
+    "downloadCount": 95,
     "updatedAt": "2026-10-19T23:14:39Z"
   },
   {
@@ -347,7 +334,7 @@
     "zipUrl": "https://github.com/thelok1s/florida-zygisk/releases/download/17.24.3/florida-zygisk-17.24.3.zip",
     "size": 146400861,
     "stars": 0,
-    "downloadCount": 38,
+    "downloadCount": 39,
     "updatedAt": "2026-10-19T18:13:26Z"
   },
   {
@@ -360,7 +347,7 @@
     "zipUrl": "https://github.com/Bouteillepleine/NoMount-Suite/releases/download/v1.3.202/00_NoMount-Module-v1.3.202.zip",
     "size": 876722,
     "stars": 0,
-    "downloadCount": 166,
+    "downloadCount": 173,
     "updatedAt": "2026-10-19T17:53:53Z"
   },
   {
@@ -373,7 +360,7 @@
     "zipUrl": "https://github.com/jiyin004-jpg/ommega/releases/download/v1.7.4/ommega-a-release-1.7.4.zip",
     "size": 27492256,
     "stars": 0,
-    "downloadCount": 51,
+    "downloadCount": 74,
     "updatedAt": "2026-10-19T17:25:19Z"
   },
   {
@@ -386,7 +373,7 @@
     "zipUrl": "https://github.com/RipperHybrid/AshLooper/releases/download/v10.0/AshReXcue_Bootloop_Protector_10.0_200.zip",
     "size": 259911,
     "stars": 0,
-    "downloadCount": 489,
+    "downloadCount": 514,
     "updatedAt": "2026-10-19T15:38:39Z"
   },
   {
@@ -412,7 +399,7 @@
     "zipUrl": "https://github.com/anirudhgupta109/PixelXpert-Next/releases/download/v6.1.1/PixelXpert-Next.zip",
     "size": 2780150,
     "stars": 0,
-    "downloadCount": 219,
+    "downloadCount": 228,
     "updatedAt": "2026-10-19T15:13:59Z"
   },
   {
@@ -438,7 +425,7 @@
     "zipUrl": "https://github.com/Dr-hydra/Better-Endfield/releases/download/v4.0.8/BEM-Tools-1.6.1-win-x64.zip",
     "size": 73275891,
     "stars": 0,
-    "downloadCount": 77,
+    "downloadCount": 78,
     "updatedAt": "2026-10-19T12:29:50Z"
   },
   {
@@ -451,7 +438,7 @@
     "zipUrl": "https://github.com/VeryBaaad/ZNNext/releases/download/v2.0.0/ZNNext-v2.0.0-212-57b46bb-release.zip",
     "size": 3225097,
     "stars": 0,
-    "downloadCount": 423,
+    "downloadCount": 438,
     "updatedAt": "2026-10-19T12:19:28Z"
   },
   {
@@ -464,7 +451,7 @@
     "zipUrl": "https://github.com/ShivamXD6/Simple-Flag-Secure/releases/download/v10.1/Simple_Flag_Secure_v10.1.zip",
     "size": 176408,
     "stars": 0,
-    "downloadCount": 300,
+    "downloadCount": 320,
     "updatedAt": "2026-10-19T11:51:20Z"
   },
   {
@@ -477,8 +464,21 @@
     "zipUrl": "https://github.com/WolalaQAQ/VD-PicoEnhance/releases/download/v1.0.8/VD-PicoEnhance-v1.0.8.zip",
     "size": 866011,
     "stars": 0,
-    "downloadCount": 2,
+    "downloadCount": 3,
     "updatedAt": "2026-10-19T11:11:05Z"
+  },
+  {
+    "id": "ViRb3_magisk-frida",
+    "name": "magisk-frida",
+    "version": "17.24.3-1",
+    "versionCode": 1,
+    "author": "ViRb3",
+    "description": "https://github.com/frida/frida/releases",
+    "zipUrl": "https://github.com/ViRb3/magisk-frida/releases/download/17.24.3-1/MagiskFrida-17.24.3-1.zip",
+    "size": 146401310,
+    "stars": 0,
+    "downloadCount": 148,
+    "updatedAt": "2026-10-19T09:29:38Z"
   },
   {
     "id": "4uva4ek_galaxyxr-modules",
@@ -503,7 +503,7 @@
     "zipUrl": "https://github.com/Ccmra404/AdBlock-Pro-next/releases/download/v0.13.5/AdBlock-Pro-v0.13.5-arm64.zip",
     "size": 18060905,
     "stars": 0,
-    "downloadCount": 86,
+    "downloadCount": 89,
     "updatedAt": "2026-10-19T08:26:01Z"
   },
   {
@@ -542,7 +542,7 @@
     "zipUrl": "https://github.com/eltavine/Duck-ToolBox/releases/download/v0.1.7-stable/duck-toolbox-0.1.7-stable.zip",
     "size": 4547574,
     "stars": 0,
-    "downloadCount": 1925,
+    "downloadCount": 1947,
     "updatedAt": "2026-10-19T02:28:25Z"
   },
   {
@@ -568,7 +568,7 @@
     "zipUrl": "https://github.com/SelfRef/noogle-magisk/releases/download/v2026.10.18.2/noogle-microg-catfish-v2026.10.18.2.zip",
     "size": 106437442,
     "stars": 0,
-    "downloadCount": 15,
+    "downloadCount": 16,
     "updatedAt": "2026-10-18T23:21:39Z"
   },
   {
@@ -581,7 +581,7 @@
     "zipUrl": "https://github.com/rrr333nnn333/BRENE/releases/download/v0.0.72/BRENE-v0.0.72.zip",
     "size": 120224,
     "stars": 0,
-    "downloadCount": 2667,
+    "downloadCount": 2738,
     "updatedAt": "2026-10-18T21:06:48Z"
   },
   {
@@ -633,7 +633,7 @@
     "zipUrl": "https://github.com/LimpidMo/SvcHub/releases/download/v1.4.0/SvcHub-10-1.4.0.zip",
     "size": 105244,
     "stars": 0,
-    "downloadCount": 90,
+    "downloadCount": 92,
     "updatedAt": "2026-10-18T14:28:15Z"
   },
   {
@@ -685,7 +685,7 @@
     "zipUrl": "https://github.com/nikitos4683/nzapret/releases/download/v4.0.0/nzapret-v4.0.0.zip",
     "size": 18171098,
     "stars": 0,
-    "downloadCount": 136,
+    "downloadCount": 138,
     "updatedAt": "2026-10-18T09:52:04Z"
   },
   {
@@ -711,7 +711,7 @@
     "zipUrl": "https://github.com/Dr-TSNG/altdb/releases/download/0.3.0/altdb-v0.3.0-arm64.zip",
     "size": 1407652,
     "stars": 0,
-    "downloadCount": 74,
+    "downloadCount": 76,
     "updatedAt": "2026-10-18T05:46:22Z"
   },
   {
@@ -737,7 +737,7 @@
     "zipUrl": "https://github.com/Bouteillepleine/OnePlus-KsuNext_NMS/releases/download/nm1.34.5-r7/00_NoMount-Module-v1.3.200.zip",
     "size": 874442,
     "stars": 0,
-    "downloadCount": 275,
+    "downloadCount": 276,
     "updatedAt": "2026-10-17T21:14:34Z"
   },
   {
@@ -750,7 +750,7 @@
     "zipUrl": "https://github.com/MeowDump/Integrity-Box/releases/download/v45/v45-Integrity-Box-18-10-2026.zip",
     "size": 1817729,
     "stars": 0,
-    "downloadCount": 14900,
+    "downloadCount": 15178,
     "updatedAt": "2026-10-17T18:13:39Z"
   },
   {
@@ -776,7 +776,7 @@
     "zipUrl": "https://github.com/readonlynux/bootanimation-module/releases/download/v1.3-stable/bootanimation-module-v1.3-stable.zip",
     "size": 13974,
     "stars": 0,
-    "downloadCount": 79,
+    "downloadCount": 80,
     "updatedAt": "2026-10-17T15:58:42Z"
   },
   {
@@ -815,7 +815,7 @@
     "zipUrl": "https://github.com/compdoge/gxr-root-ft/releases/download/v1.3.9/gxr-alvr-v1.3.9.zip",
     "size": 142990,
     "stars": 0,
-    "downloadCount": 38,
+    "downloadCount": 39,
     "updatedAt": "2026-10-17T00:24:51Z"
   },
   {
@@ -867,7 +867,7 @@
     "zipUrl": "https://github.com/ahmed-alnassif/ReSuSFS/releases/download/v26.10.16/ReSuSFS.zip",
     "size": 296802,
     "stars": 0,
-    "downloadCount": 1889,
+    "downloadCount": 1909,
     "updatedAt": "2026-10-16T11:13:43Z"
   },
   {
@@ -893,7 +893,7 @@
     "zipUrl": "https://github.com/ifoknr/NextSUSFS/releases/download/v0.0.13/NextSUSFS-v0.0.13.zip",
     "size": 586536,
     "stars": 0,
-    "downloadCount": 15,
+    "downloadCount": 16,
     "updatedAt": "2026-10-16T10:22:42Z"
   },
   {
@@ -958,7 +958,7 @@
     "zipUrl": "https://github.com/twoone-3/AdGuardHomeForRoot/releases/download/20261016/AdGuardHomeForRoot_arm64.zip",
     "size": 11320619,
     "stars": 0,
-    "downloadCount": 1704,
+    "downloadCount": 1719,
     "updatedAt": "2026-10-16T03:13:51Z"
   },
   {
@@ -971,7 +971,7 @@
     "zipUrl": "https://github.com/youfeng11/soft_restart_fix/releases/download/v1.2.2/soft_restart_fix.zip",
     "size": 759880,
     "stars": 0,
-    "downloadCount": 267,
+    "downloadCount": 271,
     "updatedAt": "2026-10-16T00:04:58Z"
   },
   {
@@ -997,7 +997,7 @@
     "zipUrl": "https://github.com/Leekin2/XGoogle/releases/download/v1.3.1/XGoogle-Ek-Modul-1.3.1.zip",
     "size": 449168,
     "stars": 0,
-    "downloadCount": 77,
+    "downloadCount": 79,
     "updatedAt": "2026-10-15T19:20:28Z"
   },
   {
@@ -1010,7 +1010,7 @@
     "zipUrl": "https://github.com/VD171/VD-Google/releases/download/v1.09/VDGoogle-WebUI-v1.09.zip",
     "size": 2088459,
     "stars": 0,
-    "downloadCount": 271,
+    "downloadCount": 273,
     "updatedAt": "2026-10-15T16:31:25Z"
   },
   {
@@ -1023,7 +1023,7 @@
     "zipUrl": "https://github.com/Alien-Et/OpenList-Magisk/releases/download/v4.2.7/openlist-magisk-v4.2.7.zip",
     "size": 99088547,
     "stars": 0,
-    "downloadCount": 121,
+    "downloadCount": 123,
     "updatedAt": "2026-10-15T16:15:06Z"
   },
   {
@@ -1036,7 +1036,7 @@
     "zipUrl": "https://github.com/feiguang-ai/plz110-6.12.69-cve-2026-64560-ksu/releases/download/v0.1.0/plz110-ksu-v0.1.0-ce22.zip",
     "size": 889678,
     "stars": 0,
-    "downloadCount": 315,
+    "downloadCount": 316,
     "updatedAt": "2026-10-15T14:25:33Z"
   },
   {
@@ -1049,7 +1049,7 @@
     "zipUrl": "https://github.com/Fanju6/NetProxy-Magisk/releases/download/v8.6.1/NetProxy_v8.6.1_1088.zip",
     "size": 27469893,
     "stars": 0,
-    "downloadCount": 1349,
+    "downloadCount": 1356,
     "updatedAt": "2026-10-15T13:42:58Z"
   },
   {
@@ -1088,7 +1088,7 @@
     "zipUrl": "https://github.com/backslashxx/mountify/releases/download/205/mountify.zip",
     "size": 554882,
     "stars": 0,
-    "downloadCount": 7991,
+    "downloadCount": 8046,
     "updatedAt": "2026-10-15T06:39:30Z"
   },
   {
@@ -1101,7 +1101,7 @@
     "zipUrl": "https://github.com/Dr-TSNG/ZygiskNext/releases/download/v1.5.2/Zygisk-Next-1.5.2-864-a4a72ce-release.zip",
     "size": 6714344,
     "stars": 0,
-    "downloadCount": 18305,
+    "downloadCount": 18468,
     "updatedAt": "2026-10-15T01:00:18Z"
   },
   {
@@ -1127,7 +1127,7 @@
     "zipUrl": "https://github.com/ukriu/HyperUnlocked/releases/download/v2.3.2/HyperUnlocked.zip",
     "size": 80321,
     "stars": 0,
-    "downloadCount": 3798,
+    "downloadCount": 3832,
     "updatedAt": "2026-10-14T18:59:22Z"
   },
   {
@@ -1153,7 +1153,7 @@
     "zipUrl": "https://github.com/qianbinbin/fdroid-priv-ext/releases/download/20261014/org.fdroid.fdroid.privileged.mod.netinst_20261014-beta.zip",
     "size": 3877,
     "stars": 0,
-    "downloadCount": 595,
+    "downloadCount": 605,
     "updatedAt": "2026-10-14T17:23:18Z"
   },
   {
@@ -1218,7 +1218,7 @@
     "zipUrl": "https://github.com/Mods-Center/HyperOS-Launcher/releases/download/V7.5/HyperOS_LauncherV7.5F%40kashis_cringey_stuffs.zip",
     "size": 29313954,
     "stars": 0,
-    "downloadCount": 4345,
+    "downloadCount": 4373,
     "updatedAt": "2026-10-14T02:15:51Z"
   },
   {
@@ -1283,7 +1283,7 @@
     "zipUrl": "https://github.com/ylh440104/KernelSU-Tuner/releases/download/v3.4.1/KernelSU-Tuner-30041-v3.4.1.zip",
     "size": 53024,
     "stars": 0,
-    "downloadCount": 1161,
+    "downloadCount": 1167,
     "updatedAt": "2026-10-13T10:52:08Z"
   },
   {
@@ -1322,7 +1322,7 @@
     "zipUrl": "https://github.com/okhsunrog/vpnhide/releases/download/v1.3.1/vpnhide-builtin.zip",
     "size": 253983,
     "stars": 0,
-    "downloadCount": 194,
+    "downloadCount": 196,
     "updatedAt": "2026-10-12T15:25:23Z"
   },
   {
@@ -1426,7 +1426,7 @@
     "zipUrl": "https://github.com/JUANIMAN/PerfMTK/releases/download/v17.1/PerfMTKv17.1.zip",
     "size": 302435,
     "stars": 0,
-    "downloadCount": 1795,
+    "downloadCount": 1804,
     "updatedAt": "2026-10-11T00:09:54Z"
   },
   {
@@ -1439,7 +1439,7 @@
     "zipUrl": "https://github.com/Googlers-Repo/wpd/releases/download/v7.0.0/mmrl_wpd-7.0.0.zip",
     "size": 293353,
     "stars": 0,
-    "downloadCount": 382,
+    "downloadCount": 383,
     "updatedAt": "2026-10-10T15:44:37Z"
   },
   {
@@ -1452,7 +1452,7 @@
     "zipUrl": "https://github.com/Drsexo/Frosty/releases/download/4.5/Frosty-4.5.zip",
     "size": 862117,
     "stars": 0,
-    "downloadCount": 2773,
+    "downloadCount": 2793,
     "updatedAt": "2026-10-10T01:49:15Z"
   },
   {
@@ -1491,7 +1491,7 @@
     "zipUrl": "https://github.com/NEESCHAL-3/Rodin-Essential/releases/download/v1.18.5/Rodin-Essential-KernelSU-Next-Magisk-v1.18.5.zip",
     "size": 13968814,
     "stars": 0,
-    "downloadCount": 376,
+    "downloadCount": 378,
     "updatedAt": "2026-10-09T14:30:21Z"
   },
   {
@@ -1530,7 +1530,7 @@
     "zipUrl": "https://github.com/WajahatNaeem056/JerryManager/releases/download/4.5/JerryManager.zip",
     "size": 149858,
     "stars": 0,
-    "downloadCount": 188,
+    "downloadCount": 191,
     "updatedAt": "2026-10-09T08:40:50Z"
   },
   {
@@ -1556,7 +1556,7 @@
     "zipUrl": "https://github.com/Rama-X2/thermal-breaker-miyabi-core/releases/download/v4.0.0/Thermal-Breaker-Miyabi-Core-v4.0.0.zip",
     "size": 20213,
     "stars": 0,
-    "downloadCount": 352,
+    "downloadCount": 353,
     "updatedAt": "2026-10-07T17:39:11Z"
   },
   {
@@ -1608,7 +1608,7 @@
     "zipUrl": "https://github.com/Rem01Gaming/encore/releases/download/5.2.2/encore-5.2.2-1571-47cdb70-main.zip",
     "size": 2309385,
     "stars": 0,
-    "downloadCount": 7430,
+    "downloadCount": 7463,
     "updatedAt": "2026-10-05T23:04:56Z"
   },
   {
@@ -1660,7 +1660,7 @@
     "zipUrl": "https://github.com/YuzakiKokuban/android_kernel_samsung_mt6989_TabS10/releases/download/TabS10_kernel-ReSuki-hybridmount-susfs-20261005-1506/TabS10_kernel-6.1.145-android14-Kokuban-Exusiai-DZG1-ReSuki-hybridmount-susfs-20261005-1506.zip",
     "size": 18119480,
     "stars": 0,
-    "downloadCount": 11,
+    "downloadCount": 12,
     "updatedAt": "2026-10-05T07:07:00Z"
   },
   {
@@ -1712,7 +1712,7 @@
     "zipUrl": "https://github.com/Mods-Center/HyperOS-App-Vault/releases/download/V5/HyperOS_AppVaultV5%40kashis_cringey_stuffs.zip",
     "size": 35154236,
     "stars": 0,
-    "downloadCount": 800,
+    "downloadCount": 805,
     "updatedAt": "2026-10-04T05:20:57Z"
   },
   {
@@ -1738,7 +1738,7 @@
     "zipUrl": "https://github.com/Mrakorez/py2droid/releases/download/v0.3.7/py2droid-v0.3.7.zip",
     "size": 17850466,
     "stars": 0,
-    "downloadCount": 225,
+    "downloadCount": 226,
     "updatedAt": "2026-10-03T18:34:51Z"
   },
   {
@@ -1751,8 +1751,21 @@
     "zipUrl": "https://github.com/chisewaguri/systemapp_nuker/releases/download/v2.2.6/SAN_v2.2.6.zip",
     "size": 784050,
     "stars": 0,
-    "downloadCount": 1057,
+    "downloadCount": 1060,
     "updatedAt": "2026-10-03T04:36:33Z"
+  },
+  {
+    "id": "Elcapitanoe_Komodo-Build-Prop",
+    "name": "Komodo-Build-Prop",
+    "version": "20261003",
+    "versionCode": 1,
+    "author": "Elcapitanoe",
+    "description": "## Google Pixel 9 Pro XL (Komodo) - File: `Komodo_beta_DP11.260918.006.zip` - SHA256: `4ae2c6df2c084",
+    "zipUrl": "https://github.com/Elcapitanoe/Komodo-Build-Prop/releases/download/20261003/Komodo_beta_DP11.260918.006.zip",
+    "size": 70913,
+    "stars": 0,
+    "downloadCount": 247,
+    "updatedAt": "2026-10-03T01:51:10Z"
   },
   {
     "id": "Sound_And_Emoji_IOS",
@@ -1764,7 +1777,7 @@
     "zipUrl": "https://github.com/antoniomalheirs/Sound_And_Emoji_IOS/releases/download/V2.0.4/Sound_And_Emoji_IOS.zip",
     "size": 71993065,
     "stars": 0,
-    "downloadCount": 573,
+    "downloadCount": 574,
     "updatedAt": "2026-10-02T05:23:48Z"
   },
   {
@@ -1790,7 +1803,7 @@
     "zipUrl": "https://github.com/WildKernels/GKI_KernelSU_SUSFS/releases/download/r21/5.10.101-android12-2022-04-KernelSU-AnyKernel3.zip",
     "size": 21692025,
     "stars": 0,
-    "downloadCount": 195,
+    "downloadCount": 199,
     "updatedAt": "2026-10-01T21:07:21Z"
   },
   {
@@ -1894,7 +1907,7 @@
     "zipUrl": "https://github.com/Briclyaz/NLSound/releases/download/v4.5/NLSound.v4.5.Qcom.Devices.zip",
     "size": 51262,
     "stars": 0,
-    "downloadCount": 1392,
+    "downloadCount": 1394,
     "updatedAt": "2026-09-27T18:20:28Z"
   },
   {
@@ -1933,7 +1946,7 @@
     "zipUrl": "https://github.com/Mods-Center/HyperOS-Theme-Manager/releases/download/V7/HyperOS_ThemeManagerV7%40kashis_cringey_stuffs.zip",
     "size": 60121665,
     "stars": 0,
-    "downloadCount": 5851,
+    "downloadCount": 5867,
     "updatedAt": "2026-09-26T11:29:11Z"
   },
   {
@@ -2089,7 +2102,7 @@
     "zipUrl": "https://github.com/OnyxZygisk/OnyxZygisk/releases/download/v1.09/OnyxZygisk-v1.09-399-820b68b-release.zip",
     "size": 4070203,
     "stars": 0,
-    "downloadCount": 2215,
+    "downloadCount": 2217,
     "updatedAt": "2026-09-21T13:45:06Z"
   },
   {
@@ -2141,7 +2154,7 @@
     "zipUrl": "https://github.com/kanaodnd/Stellar-Tweaks/releases/download/22.0/Stellar-v22.0-release5.3-VoyagingAstralist-25926.zip",
     "size": 2684589,
     "stars": 0,
-    "downloadCount": 5782,
+    "downloadCount": 5791,
     "updatedAt": "2026-09-19T15:58:50Z"
   },
   {
@@ -2167,7 +2180,7 @@
     "zipUrl": "https://github.com/v3kt0r-87/Mesa-Turnip-Builder/releases/download/19_sep_2026/Turnip-26.2.3-EMULATOR.zip",
     "size": 2597593,
     "stars": 0,
-    "downloadCount": 1612,
+    "downloadCount": 1615,
     "updatedAt": "2026-09-18T20:04:43Z"
   },
   {
@@ -2180,7 +2193,7 @@
     "zipUrl": "https://github.com/Rev4N1/GPhotosUnlimited/releases/download/v5/GPhotosUnlimited-v5.zip",
     "size": 216361,
     "stars": 0,
-    "downloadCount": 8011,
+    "downloadCount": 8017,
     "updatedAt": "2026-09-17T10:23:30Z"
   },
   {
@@ -2219,7 +2232,7 @@
     "zipUrl": "https://github.com/BasGame1/Pixelify-NEXT-Submodules/releases/download/v4.2/Bootanimation-v1.0.zip",
     "size": 8260918,
     "stars": 0,
-    "downloadCount": 63,
+    "downloadCount": 64,
     "updatedAt": "2026-09-14T06:55:32Z"
   },
   {
@@ -2258,7 +2271,7 @@
     "zipUrl": "https://github.com/kvmy666/iosEmojis-Font-module/releases/download/v1.3.1/AppleFonts-v1.3.1.zip",
     "size": 122240703,
     "stars": 0,
-    "downloadCount": 1289,
+    "downloadCount": 1295,
     "updatedAt": "2026-09-13T10:35:52Z"
   },
   {
@@ -2297,7 +2310,7 @@
     "zipUrl": "https://github.com/YuleBest/LuminPro/releases/download/v2.5.0/LuminPro_V2.5.0.zip",
     "size": 1534028,
     "stars": 0,
-    "downloadCount": 1888,
+    "downloadCount": 1889,
     "updatedAt": "2026-09-11T19:07:44Z"
   },
   {
@@ -2388,7 +2401,7 @@
     "zipUrl": "https://github.com/iodn/android-kernel-tweaker/releases/download/v2.2/AKTune-v2.2.zip",
     "size": 16718,
     "stars": 0,
-    "downloadCount": 920,
+    "downloadCount": 923,
     "updatedAt": "2026-09-07T19:39:41Z"
   },
   {
@@ -2453,7 +2466,7 @@
     "zipUrl": "https://github.com/LoggingNewMemory/Project-Raco/releases/download/7.0/ProjectRaco-7.0-LAB.zip",
     "size": 24474665,
     "stars": 0,
-    "downloadCount": 4931,
+    "downloadCount": 4937,
     "updatedAt": "2026-09-03T23:58:02Z"
   },
   {
@@ -2466,7 +2479,7 @@
     "zipUrl": "https://github.com/Numbersf/MakeFontsGreatAgain/releases/download/1717180003/MFGA-17.0.1.08-31-alpha2.1717180003.zip",
     "size": 137444593,
     "stars": 0,
-    "downloadCount": 2046,
+    "downloadCount": 2049,
     "updatedAt": "2026-08-31T05:05:07Z"
   },
   {
@@ -2505,7 +2518,7 @@
     "zipUrl": "https://github.com/RAAJK20Pro/NetworkEnhancer/releases/download/V6.5/NetworkEnhancerV6.5.zip",
     "size": 3254178,
     "stars": 0,
-    "downloadCount": 3957,
+    "downloadCount": 3962,
     "updatedAt": "2026-08-29T04:34:37Z"
   },
   {
@@ -2544,7 +2557,7 @@
     "zipUrl": "https://github.com/bindhosts/bindhosts/releases/download/v2.1.5/bindhosts.zip",
     "size": 258303,
     "stars": 0,
-    "downloadCount": 12807,
+    "downloadCount": 12830,
     "updatedAt": "2026-08-24T01:43:48Z"
   },
   {
@@ -2583,7 +2596,7 @@
     "zipUrl": "https://github.com/HanSoBored/Zygisk-Loader/releases/download/v2.0.2/zygisk-loader-v2.0.2-release.zip",
     "size": 35540,
     "stars": 0,
-    "downloadCount": 706,
+    "downloadCount": 707,
     "updatedAt": "2026-08-16T06:01:45Z"
   },
   {
@@ -2609,7 +2622,7 @@
     "zipUrl": "https://github.com/Mods-Center/HyperOS-Security-Center/releases/download/V7/HyperOS_SecurityV7%40kashis_cringey_stuffs.zip",
     "size": 94570252,
     "stars": 0,
-    "downloadCount": 8013,
+    "downloadCount": 8024,
     "updatedAt": "2026-08-14T03:09:26Z"
   },
   {
@@ -2661,7 +2674,7 @@
     "zipUrl": "https://github.com/JingMatrix/NeoZygisk/releases/download/v2.4/NeoZygisk-v2.4-289-debug.zip",
     "size": 4550312,
     "stars": 0,
-    "downloadCount": 9260,
+    "downloadCount": 9280,
     "updatedAt": "2026-08-08T19:03:47Z"
   },
   {
@@ -2713,7 +2726,7 @@
     "zipUrl": "https://github.com/JingMatrix/Vector/releases/download/v2.2/Vector-v2.2-3080-Debug.zip",
     "size": 36944715,
     "stars": 0,
-    "downloadCount": 71477,
+    "downloadCount": 71546,
     "updatedAt": "2026-08-04T09:38:29Z"
   },
   {
@@ -2752,7 +2765,7 @@
     "zipUrl": "https://github.com/powerAn2020/Patched-MagiskSSH/releases/download/v0.27/Patched-MagiskSSH.zip",
     "size": 16467434,
     "stars": 0,
-    "downloadCount": 411,
+    "downloadCount": 413,
     "updatedAt": "2026-07-31T03:26:35Z"
   },
   {
@@ -2830,7 +2843,7 @@
     "zipUrl": "https://github.com/codewithvignesh-dev/Play-Integrity-Fixer/releases/download/v.1.3.0/PlayIntegrityFixer-v1.3.0-release.zip",
     "size": 39437,
     "stars": 0,
-    "downloadCount": 368,
+    "downloadCount": 376,
     "updatedAt": "2026-07-28T14:46:03Z"
   },
   {
@@ -2843,7 +2856,7 @@
     "zipUrl": "https://github.com/TatshSiow/HyperOptimize/releases/download/1.0.0/HyperOptimize_v1.0.0.zip",
     "size": 17984,
     "stars": 0,
-    "downloadCount": 1778,
+    "downloadCount": 1782,
     "updatedAt": "2026-07-28T11:34:54Z"
   },
   {
@@ -2869,7 +2882,7 @@
     "zipUrl": "https://github.com/Kakathic/Overlayfs/releases/download/V1.7.0/overlayfs_1.7.0.zip",
     "size": 7419,
     "stars": 0,
-    "downloadCount": 2453,
+    "downloadCount": 2454,
     "updatedAt": "2026-07-27T12:36:33Z"
   },
   {
@@ -2895,7 +2908,7 @@
     "zipUrl": "https://github.com/sidex15/susfs4ksu-module/releases/download/v1.5.2%2B_R28/ksu_module_susfs_1.5.2%2B.zip",
     "size": 911798,
     "stars": 0,
-    "downloadCount": 68303,
+    "downloadCount": 68381,
     "updatedAt": "2026-07-26T09:11:01Z"
   },
   {
@@ -2960,7 +2973,7 @@
     "zipUrl": "https://github.com/chkndrp/hyperos-accessibility-fix/releases/download/1.0.5/hyperos-accessibility-fix.zip",
     "size": 23459,
     "stars": 0,
-    "downloadCount": 780,
+    "downloadCount": 782,
     "updatedAt": "2026-07-20T01:49:07Z"
   },
   {
@@ -3012,7 +3025,7 @@
     "zipUrl": "https://github.com/Keinta15/Magisk-iOS-Emoji/releases/download/v26.4/Magisk_iOS_Emoji_26.4.zip",
     "size": 34470804,
     "stars": 0,
-    "downloadCount": 18287,
+    "downloadCount": 18302,
     "updatedAt": "2026-06-25T18:46:17Z"
   },
   {
@@ -3051,7 +3064,7 @@
     "zipUrl": "https://github.com/KOWX712/Tricky-Addon-Update-Target-List/releases/download/v4.4/TrickyAddonModule-v4.4.zip",
     "size": 3203800,
     "stars": 0,
-    "downloadCount": 295470,
+    "downloadCount": 295596,
     "updatedAt": "2026-06-21T08:19:21Z"
   },
   {
@@ -3090,7 +3103,7 @@
     "zipUrl": "https://github.com/PerformanC/ReZygisk/releases/download/v1.0.0/ReZygisk-v1.0.0-debug.zip",
     "size": 724828,
     "stars": 0,
-    "downloadCount": 37922,
+    "downloadCount": 37948,
     "updatedAt": "2026-05-10T23:08:58Z"
   },
   {
@@ -3103,7 +3116,7 @@
     "zipUrl": "https://github.com/egor-white/zaprett/releases/download/7.1.0/zaprett-hosts.zip",
     "size": 5641612,
     "stars": 0,
-    "downloadCount": 12322,
+    "downloadCount": 12329,
     "updatedAt": "2026-04-12T09:44:50Z"
   },
   {
@@ -3116,7 +3129,7 @@
     "zipUrl": "https://github.com/burakgon/KernelSU-WiFi-Country-Code/releases/download/v3.0/WiFi-Force-Country-Code-v3.0.zip",
     "size": 13090,
     "stars": 0,
-    "downloadCount": 1840,
+    "downloadCount": 1841,
     "updatedAt": "2026-04-10T13:38:05Z"
   },
   {
@@ -3129,7 +3142,7 @@
     "zipUrl": "https://github.com/ZG089/Re-Malwack/releases/download/v8.2/Re-Malwack_v8.2.zip",
     "size": 2843070,
     "stars": 0,
-    "downloadCount": 32338,
+    "downloadCount": 32353,
     "updatedAt": "2026-04-01T18:03:37Z"
   },
   {
@@ -3155,7 +3168,7 @@
     "zipUrl": "https://github.com/NoName-exe/revanced/releases/download/120/youtube-music-revanced-module-v8.40.54-arm-v7a.zip",
     "size": 57698862,
     "stars": 0,
-    "downloadCount": 18373,
+    "downloadCount": 18374,
     "updatedAt": "2026-03-21T20:26:04Z"
   },
   {
@@ -3194,7 +3207,7 @@
     "zipUrl": "https://github.com/taamarin/box_for_magisk/releases/download/v1.10.2/box_for_root-v1.10.2.zip",
     "size": 76249,
     "stars": 0,
-    "downloadCount": 18020,
+    "downloadCount": 18027,
     "updatedAt": "2025-09-05T12:45:22Z"
   },
   {
@@ -3207,7 +3220,7 @@
     "zipUrl": "https://github.com/Magisk-Modules-Alt-Repo/audio-misc-settings/releases/download/v1.3.11/magisk-module-audio-misc-v1.3.11.zip",
     "size": 27826,
     "stars": 0,
-    "downloadCount": 18459,
+    "downloadCount": 18469,
     "updatedAt": "2025-06-07T14:48:38Z"
   },
   {
@@ -3246,7 +3259,7 @@
     "zipUrl": "https://github.com/CHIZI-0618/box4magisk/releases/download/v5.1/box4_v5.1.zip",
     "size": 39555,
     "stars": 0,
-    "downloadCount": 7608,
+    "downloadCount": 7610,
     "updatedAt": "2024-09-16T05:42:02Z"
   },
   {
@@ -3265,8 +3278,8 @@
   {
     "id": "Lynx",
     "name": "Lynx",
-    "version": "7.0.0-RC139",
-    "versionCode": 839,
+    "version": "7.0.0-RC144",
+    "versionCode": 844,
     "author": "Zy0x",
     "description": "### New\r - Added module update checking\r - Added Kyber scheduler for some blocks\r - Added additional",
     "zipUrl": "https://github.com/Zy0x/Lynx/releases/download/Velocity2.9/Lynx.-.Velocity.v2.9.zip",
@@ -3287,6 +3300,19 @@
     "stars": 0,
     "downloadCount": 28642,
     "updatedAt": "2024-01-23T08:28:25Z"
+  },
+  {
+    "id": "topjohnwu_magisk-files",
+    "name": "magisk-files",
+    "version": "files",
+    "versionCode": 1,
+    "author": "topjohnwu",
+    "description": "A place to host random assets needed for the Magisk project.",
+    "zipUrl": "https://github.com/topjohnwu/magisk-files/releases/download/files/bootctl-android-14.0.0_r1.zip",
+    "size": 250025,
+    "stars": 0,
+    "downloadCount": 2362,
+    "updatedAt": "2023-12-15T13:54:41Z"
   },
   {
     "id": "AdGuardDNS4Magisk-Family",
@@ -3428,7 +3454,7 @@
     "zipUrl": "https://github.com/siimsek/IOS-PILL/releases/download/IOS-PILL/IOS-PILL_Magisk.zip",
     "size": 8686,
     "stars": 0,
-    "downloadCount": 6630,
+    "downloadCount": 6631,
     "updatedAt": "2022-03-15T19:39:33Z"
   },
   {

@@ -16,12 +16,32 @@ def is_safe(repo_name, desc):
     return not any(re.search(pattern, text) for pattern in BLACKLIST_REGEX)
 
 # 多维度搜索词矩阵
+
 QUERIES = [
-    "topic:kernelsu", "topic:magisk-module", "topic:magisk", "topic:lsposed", 
-    "topic:zygisk", "topic:susfs", "topic:gki", "topic:magisk-hide", "topic:xposed",
-    "kernelsu in:name", "magisk in:name", "magisk-module in:name", 
-    "lsposed in:name", "zygisk in:name", "susfs in:name"
+    # 1. Root 管理器与核心框架
+    "topic:kernelsu", "topic:magisk", "topic:apatch", "topic:sukisu", "topic:kernelsu-next", "topic:bakasu", "topic:yukisu",
+    "topic:zygisk", "topic:lsposed", "topic:xposed", "topic:lspatch", "topic:mmrl", "topic:magisk-hub",
+    "kernelsu in:name", "magisk in:name", "apatch in:name", "sukisu in:name", "zygisk in:name", "lsposed in:name",
+
+    # 2. 隐藏、完整性验证与反检测 (Meta Modules)
+    "topic:susfs", "topic:shamiko", "topic:zygisk-assistant", "topic:playintegrityfix", "topic:trickystore",
+    "metamodule in:name,description", "meta-hybrid in:name", "magic-mount in:name", "mountify in:name", "hymo in:name",
+    "shamiko in:name", "trickystore in:name", "playintegrityfix in:name", "integrity-box in:name", "safetynet-fix in:name",
+
+    # 3. 性能、调度与电池
+    "topic:kernel", "topic:gki", "topic:lkm", "topic:kpm", "topic:performance", "topic:scheduler", "topic:battery", "topic:thermal",
+    "ktweak in:name", "fde.ai in:name", "l-speed in:name", "gpu-turbo in:name", "zram in:name", "acc in:name", "charging in:name",
+
+    # 4. 视觉、UI 与音频
+    "topic:iconify", "topic:theme", "topic:statusbar", "topic:font", "topic:emoji", "topic:bootanimation", "topic:viper4android", "topic:audio",
+    "iconify in:name", "viper4android in:name", "v4a in:name", "nlsound in:name", "audio in:name", "font in:name", "emoji in:name",
+
+    # 5. 系统工具与网络代理
+    "topic:tailscale", "topic:vpn", "topic:proxy", "topic:adb", "topic:systemless", "topic:backup",
+    "clash in:name", "sing-box in:name", "v2ray in:name", "xray in:name", "tailscale in:name", "alist in:name", 
+    "magisk-autoboot in:name", "remote-adb in:name", "bootloop-protector in:name", "sui in:name"
 ]
+
 print("✅ 第一段：基础定义与搜索矩阵加载完毕！", flush=True)
 
 def safe_request(url, timeout=15, retries=3):
@@ -32,7 +52,8 @@ def safe_request(url, timeout=15, retries=3):
             if resp.status_code == 200:
                 return resp
             elif resp.status_code in [403, 429]:
-                time.sleep(3)
+                print(f"⚠️ API 限流！等待中...", flush=True)
+                time.sleep(30)
         except Exception:
             time.sleep(1)
     return None
@@ -150,7 +171,7 @@ def main():
     print(f"\n📦 [Ultra] 锁定 {len(all_repos)} 个候选，启动 30 线程深度质检...", flush=True)
     modules = []
     
-    with ThreadPoolExecutor(max_workers=30) as ex:
+    with ThreadPoolExecutor(max_workers=5) as ex:
         futures = {ex.submit(get_module_data, repo, info): repo for repo, info in all_repos.items()}
         for i, f in enumerate(as_completed(futures)):
             rep = f.result()
@@ -328,7 +349,7 @@ def run_scraper():
     print(f"\n📦 [Ultra] 锁定 {len(all_repos)} 个候选，启动 30 线程深度质检...", flush=True)
     modules = []
     
-    with ThreadPoolExecutor(max_workers=30) as ex:
+    with ThreadPoolExecutor(max_workers=5) as ex:
         futures = {ex.submit(get_module_data_ultra, repo, info): repo for repo, info in all_repos.items()}
         for i, f in enumerate(as_completed(futures)):
             rep = f.result()

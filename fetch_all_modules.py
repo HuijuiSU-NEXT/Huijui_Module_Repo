@@ -90,7 +90,7 @@ def get_module_data(repo, repo_info):
                 if 0.001 <= size_mb <= 1024:
                     valid_releases.append({
                         "name": rel.get("tag_name", "Unknown"),
-                        "publishedAt": rel.get("published_at", ""),
+                        "publishedAt": rel.get("published_at") or "",
                         "zipUrl": zip_asset["browser_download_url"],
                         "size": zip_asset["size"],
                         "downloadCount": zip_asset.get("download_count", 0)
@@ -98,7 +98,7 @@ def get_module_data(repo, repo_info):
         if not valid_releases: return None
         
         # 🚀 核心：按照发布时间从新到旧排序（最新发布的在最前面）
-        valid_releases.sort(key=lambda x: x["publishedAt"], reverse=True)
+        valid_releases.sort(key=lambda x: x["publishedAt"] or "", reverse=True)
         
         latest = valid_releases[0]
         raw_desc = releases_data[0].get("body") or repo_info.get("description") or ""
@@ -167,7 +167,7 @@ def main():
             unique_mods[key] = m
             
     final_list = list(unique_mods.values())
-    final_list.sort(key=lambda x: x["updatedAt"], reverse=True)
+    final_list.sort(key=lambda x: x["updatedAt"] or "", reverse=True)
     
     with open("modules.json", "w", encoding="utf-8") as f:
         json.dump(final_list, f, indent=2, ensure_ascii=False)
@@ -217,7 +217,7 @@ def get_module_data_ultra(repo, repo_info):
                     if scan_zip_for_danger(zip_asset["browser_download_url"], zip_asset["size"]):
                         valid_releases.append({
                             "name": rel.get("tag_name", "Unknown"),
-                            "publishedAt": rel.get("published_at", ""),
+                            "publishedAt": rel.get("published_at") or "",
                             "zipUrl": zip_asset["browser_download_url"],
                             "size": zip_asset["size"],
                             "downloadCount": zip_asset.get("download_count", 0)
@@ -225,7 +225,7 @@ def get_module_data_ultra(repo, repo_info):
         if not valid_releases: return None
         
         # 🚀 核心：按照发布时间从新到旧排序（最新发布的在最前面）
-        valid_releases.sort(key=lambda x: x["publishedAt"], reverse=True)
+        valid_releases.sort(key=lambda x: x["publishedAt"] or "", reverse=True)
         
         latest = valid_releases[0]
         raw_desc = releases_data[0].get("body") or repo_info.get("description") or ""
@@ -270,7 +270,7 @@ def finalize_and_save(modules):
             unique_mods[key] = m
 
     final_list = list(unique_mods.values())
-    final_list.sort(key=lambda x: x["updatedAt"], reverse=True)
+    final_list.sort(key=lambda x: x["updatedAt"] or "", reverse=True)
     
     with open("modules.json", "w", encoding="utf-8") as f:
         json.dump(final_list, f, indent=2, ensure_ascii=False)

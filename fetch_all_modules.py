@@ -7,28 +7,63 @@ TOKEN = os.getenv("GITHUB_TOKEN")
 HEADERS = {"Accept": "application/vnd.github.v3+json"}
 if TOKEN: HEADERS["Authorization"] = f"token {TOKEN}"
 
-# 加入自动重试，应对偶尔的 429/503 限流
 session = requests.Session()
 retries = Retry(total=3, backoff_factor=1.5, status_forcelist=[429, 500, 502, 503, 504])
 session.mount('https://', HTTPAdapter(max_retries=retries))
 
-BLACKLIST = ["format", "rm -rf", "dd if=", "cheat", "hack", "trojan", "steal"]
-
-# 扩充了搜索关键词和 topic，尽量捞全
-QUERIES = [
-    "topic:kernelsu", "topic:magisk-module", "topic:magisk",
-    "topic:lsposed", "topic:zygisk", "topic:susfs", "topic:apatch",
-    "kernelsu in:name,description", "magisk in:name,description",
-    "magisk in:readme", "kernelsu in:readme"
+BLACKLIST = [
+    "format", "rm -rf", "dd if=", "cheat", "hack", "trojan", "steal",
+    "外挂", "作弊", "透视", "自瞄", "aimbot", "wallhack", "executor", "injector",
+    "gameguardian", "lucky_patcher"
 ]
 
+QUERIES = [
+    "topic:kernelsu", "topic:magisk-module", "topic:magisk", "topic:apatch",
+    "kernelsu in:name,description", "magisk in:name,description",
+    "topic:zygisk", "topic:zygisk-module", "zygisk in:name,description",
+    "topic:lsposed", "topic:lsposed-module", "topic:xposed",
+    "topic:metamodule", "metamodule in:name,description,readme",
+    "hybrid-mount in:name,description", "meta-hybrid_mount in:name,description"
+]
+
+TRUSTED_DEVS = [
+    "topjohnwu", "tiann", "5ec1cff", "sorubedo", "wangtong10086",
+    "hhcdxii-ship-it", "Dr-TSNG", "PerformanC", "LSPosed"
+]
+
+CATEGORY_KEYWORDS = {
+    "performance": ["性能", "调度", "cpu", "内存", "优化", "performance", "tuning", "省电", "内核", "gpu"],
+    "gaming": ["游戏", "触控", "gaming", "fps", "高刷"],
+    "media": ["音效", "相机", "屏幕", "音频", "camera", "audio", "display", "拍照", "vulkan"],
+    "network": ["网络", "dns", "广告", "hosts", "proxy", "去广告", "拦截"],
+    "system": ["系统", "内核", "框架", "framework", "system", "integrity", "playintegrity", "修复"],
+    "privacy": ["隐私", "隐藏", "反检测", "hide", "privacy", "spoof", "伪装", "zygisk", "lsposed", "hybrid"],
+    "theme": ["美化", "字体", "主题", "ui", "theme", "font", "bootanimation", "开机动画", "图标"],
+    "utility": ["工具", "终端", "文件", "utility", "tool", "terminal", "清理", "管理"]
+}
+
+def guess_category(desc):
+    desc_lower = desc.lower()
+    for cat, keywords in CATEGORY_KEYWORDS.items():
+        for kw in keywords:
+            if kw in desc_lower:
+                return cat
+    return "utility"
+
+def get_trust_level(author, stars):
+    if author.lower() in [a.lower() for a in TRUSTED_DEVS]:
+        return "TRUSTED_DEV"
+    elif stars >= 50:
+        return "COMMUNITY"
+    return "UNVERIFIED"
+
 def load_old_modules():
-    # 读取上一次生成的 modules.json 作为缓存
     if os.path.exists("modules.json"):
         try:
             with open("modules.json", "r", encoding="utf-8") as f:
                 return {m["id"]: m for m in json.load(f)}
-        except Exception: pass
+        except Exception:
+            pass
     return {}
 
 def search_repos():
@@ -36,8 +71,7 @@ def search_repos():
     print("Start scanning...", flush=True)
     for q in QUERIES:
         print(f"Searching: {q} ...", flush=True)
-        # 扩大到 10 页 (最多1000个)，充分榨干搜索额度
-        for page in range(1, 11):
+        for page in range(1, 4):
             url = f"https://api.github.com/search/repositories?q={q}&sort=updated&order=desc&per_page=100&page={page}"
             try:
                 resp = session.get(url, headers=HEADERS, timeout=15)
@@ -48,19 +82,30 @@ def search_repos():
                         if r.get("fork", False): continue
                         if not any(w in r["full_name"].lower() for w in BLACKLIST):
                             all_repos[r["full_name"]] = r
-                time.sleep(2) # 控制搜索频率
-            except Exception: pass
+                time.sleep(2)
+            except Exception:
+                pass
     return all_repos
 
 def get_module_data(repo_name, repo_info, old_modules):
-    # 【核心优化】增量缓存：如果仓库上次提交时间没变，直接复用旧数据，不再请求 API！
     old_data = old_modules.get(repo_name.replace("/", "_"))
     pushed_at = repo_info.get("pushed_at", "")
-    
+    stars = repo_info.get("stargazers_count", 0)
+
+    # 🚀 核心修复：缓存自愈机制
     if old_data and old_data.get("updatedAt") == pushed_at:
-        old_data["stars"] = repo_info.get("stargazers_count", 0) # 更新星星数
+        old_data["stars"] = stars
+        # 如果旧缓存缺少新字段，现场补全，防止 KeyError
+        if "module_type" not in old_data:
+            old_data["module_type"] = "standard"
+        if "category" not in old_data:
+            old_data["category"] = guess_category(old_data.get("description", ""))
+        if "trust_level" not in old_data:
+            old_data["trust_level"] = get_trust_level(old_data.get("author", ""), stars)
+        if "has_webui" not in old_data:
+            old_data["has_webui"] = "webui" in old_data.get("description", "").lower()
         return old_data
-        
+
     try:
         resp = session.get(f"https://api.github.com/repos/{repo_name}/releases", headers=HEADERS, timeout=10)
         if resp.status_code != 200: return None
@@ -69,7 +114,6 @@ def get_module_data(repo_name, repo_info, old_modules):
 
         valid_releases = []
         for rel in releases_data[:5]:
-            # 放开了 .apk 和 .tgz 等格式限制
             asset = next((a for a in rel.get("assets", []) if a["name"].endswith((".zip", ".apk", ".tgz"))), None)
             if asset:
                 size_mb = asset["size"] / (1024 * 1024)
@@ -86,6 +130,9 @@ def get_module_data(repo_name, repo_info, old_modules):
         latest = valid_releases[0]
 
         real_ver = latest["name"]
+        desc_text = (releases_data[0].get("body") or "No description").replace("\n", " ")
+        module_type = "standard"
+
         for branch in ["main", "master"]:
             prop_url = f"https://raw.githubusercontent.com/{repo_name}/{branch}/module.prop"
             try:
@@ -94,38 +141,62 @@ def get_module_data(repo_name, repo_info, old_modules):
                     for line in prop_resp.text.splitlines():
                         if line.startswith("version="):
                             real_ver = line.split("=", 1)[1].strip()
+                        if line.startswith("metamodule=") and line.split("=", 1)[1].strip() in ["1", "true"]:
+                            if "hybrid" in repo_name.lower() or "hybrid" in desc_text.lower():
+                                module_type = "hybrid_mount"
+                            else:
+                                module_type = "metamodule"
+            except Exception: pass
+
+            xposed_url = f"https://raw.githubusercontent.com/{repo_name}/{branch}/META-INF/xposed/module.prop"
+            try:
+                xposed_resp = session.get(xposed_url, timeout=5)
+                if xposed_resp.status_code == 200:
+                    module_type = "lsposed"
                     break
             except Exception: pass
 
-        return {
+            if module_type == "standard":
+                if "zygisk" in repo_name.lower() or "zygisk" in desc_text.lower():
+                    module_type = "zygisk"
+
+        if len(desc_text) > 200:
+            desc_text = desc_text[:200] + "..."
+
+        module_data = {
             "id": repo_name.replace("/", "_"),
             "name": repo_name.split("/")[1],
             "author": repo_name.split("/")[0],
             "version": real_ver,
-            "description": (releases_data[0].get("body") or "No description")[:120].replace("\n", " "),
+            "description": desc_text,
+            "module_type": module_type,
+            "category": guess_category(desc_text),
+            "trust_level": get_trust_level(repo_name.split("/")[0], stars),
+            "has_webui": "webui" in desc_text.lower(),
             "downloadCount": latest["downloadCount"],
-            "updatedAt": pushed_at, # 用 pushed_at 替代发布时间，用于下次比对
-            "stars": repo_info.get("stargazers_count", 0),
-            "releases": valid_releases
+            "updatedAt": pushed_at,
+            "stars": stars,
+            "releases": [latest]
         }
-    except Exception: return None
+        return module_data
+    except Exception:
+        return None
 
 def main():
     old_modules = load_old_modules()
     all_repos = search_repos()
     print(f"\nFound {len(all_repos)} candidates. Starting deep scan...", flush=True)
     modules = []
-    
-    # 【核心优化】并发降到 5，防止被 API 拉黑限流
+
     with ThreadPoolExecutor(max_workers=5) as ex:
         futures = {ex.submit(get_module_data, repo, info, old_modules): repo for repo, info in all_repos.items()}
         for i, f in enumerate(as_completed(futures)):
             rep = f.result()
             if rep:
                 modules.append(rep)
-                # 每隔50个打印一次，减少日志输出卡顿
                 if i % 50 == 0:
-                    print(f"[{i}/{len(all_repos)}] OK: {rep['name']}", flush=True)
+                    # 🚀 修复：用 get() 兜底，防止日志打崩
+                    print(f"[{i}/{len(all_repos)}] OK: {rep.get('name', 'unknown')} [{rep.get('module_type', 'standard')}]", flush=True)
 
     unique_modules = {}
     for mod in modules:
